@@ -2,10 +2,14 @@ version: "3.9"
 
 services:
   backend:
+    network_mode: "host"  # Allow access to host network stack
+    cap_add:
+      - NET_ADMIN         # Required for raw UDP sockets
     build:
       context: ../p2p-chat-api
     ports:
       - "3000:3000"
+      # - "3000:3000/udp" # if network_mode cannot be used or does not work
     environment:
       - NODE_ENV=production
     restart: unless-stopped
