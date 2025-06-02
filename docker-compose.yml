@@ -6,7 +6,7 @@ services:
     cap_add:
       - NET_ADMIN         # Required for raw UDP sockets
     build:
-      context: ../p2p-chat-api
+      context: ../project-p2p-chat-api
     ports:
       - "3000:3000"
       # - "3000:3000/udp" # if network_mode cannot be used or does not work
@@ -16,7 +16,7 @@ services:
 
   frontend:
     build:
-      context: ../p2p-chat-web
+      context: ../project-p2p-chat-web
     ports:
       - "8000:80"
     environment:
